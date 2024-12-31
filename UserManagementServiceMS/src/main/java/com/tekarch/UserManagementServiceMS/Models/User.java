@@ -20,7 +20,7 @@ public class User {
     @Column(name = "accountId", nullable = false)
     private Integer accountId;
 
-    @Column(name = "username", nullable = false, unique = true)
+  //  @Column(name = "username", nullable = false, unique = true)
     @NotEmpty(message = "Name should not be empty")
     private String username;
 
@@ -33,6 +33,8 @@ public class User {
 
     @Column(name = "currency", nullable = false)
     private String currency;
+
+
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private PersonalInfo personalInfo;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserPersonalRepository extends JpaRepository<PersonalInfo,Long> {
+public interface UserPersonalRepository extends JpaRepository<User,Long> {
 
    // @Query(value = "SELECT * FROM user u CROSS JOIN account a", nativeQuery = true)
     @Query(value = "SELECT * FROM user",nativeQuery = true)

@@ -3,6 +3,7 @@ package com.tekarch.UserManagementServiceMS.Services;
 import com.tekarch.UserManagementServiceMS.Models.User;
 import com.tekarch.UserManagementServiceMS.Repositories.UserRepository;
 import com.tekarch.UserManagementServiceMS.Services.Interfaces.UserManageServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -10,9 +11,11 @@ import java.util.Optional;
 public class UserManageServiceImpl implements UserManageServices {
     private final UserRepository userRepository;
 
+    @Autowired
     public UserManageServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
 
     @Override
     public User createUser(User user) {

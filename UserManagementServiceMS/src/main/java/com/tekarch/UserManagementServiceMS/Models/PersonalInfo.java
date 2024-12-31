@@ -13,15 +13,15 @@ public class PersonalInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userid;
-
-    @Column(name = "Email", nullable = false)
+   // @Column( nullable = true)
+   // private String Address;
+    @Column(name = "Email", nullable = true)
     private String Email;
 
-    @Column(name = "MobileNumber", nullable = false)
+   @Column(name = "MobileNumber", nullable = true)
     private Long MobileNumber;
 
-    @Column(name = "Address", nullable = false)
-    private String Address;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "userid")

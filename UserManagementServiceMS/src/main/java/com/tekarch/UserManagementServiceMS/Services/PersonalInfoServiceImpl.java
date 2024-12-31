@@ -37,7 +37,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoServices {
             PersonalInfo existingUser = existingUserOpt.get();
 
             existingUser.setEmail(userDetails.getEmail());
-            existingUser.setAddress(userDetails.getAddress());
+           // existingUser.setAddress(userDetails.getAddress());
             existingUser.setMobileNumber(userDetails.getMobileNumber());
 
             return Optional.of(personalInfoRepository.save(existingUser));

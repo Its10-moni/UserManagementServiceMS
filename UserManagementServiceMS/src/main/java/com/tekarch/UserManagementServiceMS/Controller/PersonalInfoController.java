@@ -4,6 +4,7 @@ import com.tekarch.UserManagementServiceMS.Models.PersonalInfo;
 import com.tekarch.UserManagementServiceMS.Models.User;
 import com.tekarch.UserManagementServiceMS.Services.Interfaces.PersonalInfoServices;
 import com.tekarch.UserManagementServiceMS.Services.Interfaces.UserManageServices;
+import com.tekarch.UserManagementServiceMS.Services.PersonalInfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +16,18 @@ import org.springframework.web.bind.annotation.*;
 public class PersonalInfoController {
 
 
-    private final PersonalInfoServices personalInfoServices;
-
-    @Autowired
-    public PersonalInfoController(PersonalInfoServices personalInfoServices) {
+    private final PersonalInfoServiceImpl personalInfoServices;
+@Autowired
+    public PersonalInfoController(PersonalInfoServiceImpl personalInfoServices) {
         this.personalInfoServices = personalInfoServices;
     }
+
+
     @PostMapping
-    public ResponseEntity<PersonalInfo> createpersonalInfo(@RequestBody PersonalInfo personalInfo) {
-        PersonalInfo createpersonalInfo = personalInfoServices.createpersonalInfo(personalInfo);
-        return new ResponseEntity<>(createpersonalInfo, HttpStatus.CREATED);
+    public PersonalInfo createpersonalInfo(@RequestBody PersonalInfo personalInfo) {
+       return personalInfoServices.createpersonalInfo(personalInfo);
+    // PersonalInfo createpersonalInfo =
+       // return new ResponseEntity<>(createpersonalInfo, HttpStatus.CREATED);
     }
 
 
