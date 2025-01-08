@@ -6,11 +6,13 @@ import com.tekarch.UserManagementServiceMS.Repositories.PersonalInfoRepository;
 import com.tekarch.UserManagementServiceMS.Repositories.UserRepository;
 import com.tekarch.UserManagementServiceMS.Services.Interfaces.PersonalInfoServices;
 import com.tekarch.UserManagementServiceMS.Services.Interfaces.UserManageServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 @Service
 public class PersonalInfoServiceImpl implements PersonalInfoServices {
+    @Autowired
     private final PersonalInfoRepository personalInfoRepository;
 
     public PersonalInfoServiceImpl(PersonalInfoRepository personalInfoRepository) {

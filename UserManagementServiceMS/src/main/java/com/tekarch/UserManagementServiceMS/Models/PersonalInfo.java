@@ -13,8 +13,7 @@ public class PersonalInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userid;
-   // @Column( nullable = true)
-   // private String Address;
+
     @Column(name = "Email", nullable = true)
     private String Email;
 

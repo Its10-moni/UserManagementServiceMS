@@ -1,5 +1,6 @@
 package com.tekarch.UserManagementServiceMS.Controller;
 
+import com.tekarch.UserManagementServiceMS.DTO.AccountDTO;
 import com.tekarch.UserManagementServiceMS.Models.User;
 import com.tekarch.UserManagementServiceMS.Services.Interfaces.UserManageServices;
 import com.tekarch.UserManagementServiceMS.Services.UserManageServiceImpl;
@@ -11,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 public class UserServiceController {
+    @Autowired
     private final UserManageServiceImpl userManageServices;
-@Autowired
+
     public UserServiceController(UserManageServiceImpl userManageServices) {
         this.userManageServices = userManageServices;
     }
@@ -35,10 +37,9 @@ public class UserServiceController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     @PutMapping("/{userid}")
-    public ResponseEntity<User> updateUserById(@PathVariable Long userid,@RequestBody User userDetails) {
-        return userManageServices.updateUserById(userid,userDetails)
-                .map(account -> new ResponseEntity<>(account, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public User updateUserById(@PathVariable Long userid,@RequestBody AccountDTO userDetails) {
+        return userManageServices.updateUserByAccountId(userid,userDetails);
+
     }
 
 
