@@ -3,7 +3,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - ./gradlew clean build
+      - echo Granting execution permissions to Gradle wrapper...
+      - chmod +x ./gradlew
+      - echo Cleaning up previous builds...
+      - ./gradlew clean
+      - ./gradlew build
       - echo Logging in to Amazon ECR...
       - aws --version
       - REPOSITORY_URI=717279701053.dkr.ecr.us-east-1.amazonaws.com/tekarch/boa-repo
