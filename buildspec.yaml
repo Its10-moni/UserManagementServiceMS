@@ -3,6 +3,10 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - echo Logging into Docker Hub...
+      - DOCKER_PASSWORD=Mydocker@1
+      - DOCKER_USERNAME=monishakrishnan92@gmail.com
+      - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
       - echo Granting execution permissions to Gradle wrapper...
       - chmod +x ./gradlew
       - echo Cleaning up previous builds...
